@@ -1,0 +1,1 @@
+<section class="empty page container"><div>🛣️</div><h1>Halaman tidak ditemukan</h1><p>Alamat mungkin berubah atau sudah tidak tersedia.</p><a class="btn btn-primary" href="<?= url('/') ?>">Kembali ke Beranda</a></section>

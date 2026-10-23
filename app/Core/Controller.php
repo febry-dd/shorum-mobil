@@ -1,0 +1,2 @@
+<?php namespace App\Core;
+abstract class Controller{protected function view(string $view,array $data=[]):void{extract($data);$content=dirname(__DIR__).'/Views/'.$view.'.php';require dirname(__DIR__).'/Views/layouts/app.php';}protected function auth():array{if(!auth()){flash('error','Silakan masuk terlebih dahulu.');redirect('/login');}return auth();}protected function validateCsrf():void{Csrf::verify($_POST['_token']??null);}}

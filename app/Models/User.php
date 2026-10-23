@@ -1,0 +1,3 @@
+<?php namespace App\Models;
+use App\Core\Database;
+final class User{public static function findByEmail(string $email):?array{$s=Database::connection()->prepare('SELECT * FROM users WHERE email=?');$s->execute([$email]);return $s->fetch()?:null;}public static function create(array $d):int{$s=Database::connection()->prepare('INSERT INTO users(name,email,password,phone,created_at) VALUES(?,?,?,?,NOW())');$s->execute([$d['name'],$d['email'],password_hash($d['password'],PASSWORD_DEFAULT),$d['phone']]);return(int)Database::connection()->lastInsertId();}public static function find(int $id):?array{$s=Database::connection()->prepare('SELECT id,name,email,phone FROM users WHERE id=?');$s->execute([$id]);return $s->fetch()?:null;}}
